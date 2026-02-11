@@ -29,7 +29,10 @@ body {
     z-index: 1000;
 }
 
-.logo {
+a.logo,
+a.logo:visited,
+a.logo:hover,
+a.logo:active {
     font-size: 2rem;
     font-weight: 400;
     letter-spacing: -0.5px;
