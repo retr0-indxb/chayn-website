@@ -14,13 +14,12 @@
 
 <body>
     <header class="navbar">
-        <div class="logo">
+        <a href="index.html" class="logo">
             Meet <strong>your</strong> neighborhood.
-        </div>
+        </a>
         <nav>
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="#" class="nav-link">Log in / Sign up</a>
-            <a href="#" class="nav-link">About</a>
+            <a href="login.html" class="nav-link">Log in / Sign up</a>
+            <a href="about.html" class="nav-link">About</a>
         </nav>
     </header>
 
@@ -30,11 +29,15 @@
             <div class="controls">
                 <div class="control-group">
                     <button class="btn-control">Sort by <i class="fa-solid fa-chevron-down"></i></button>
-                    <!-- Dropdown content would go here -->
                 </div>
                 <div class="control-group">
                     <button class="btn-control">Filter by <i class="fa-solid fa-chevron-down"></i></button>
-
+                </div>
+                <div class="control-group">
+                    <a href="create-event.html" class="btn-control"
+                        style="background-color: white; color: var(--nav-bg); border: 2px solid var(--nav-bg);">
+                        <i class="fa-solid fa-plus"></i> Create Event
+                    </a>
                 </div>
             </div>
         </div>
