@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Meet your neighborhood</title>
+    <title>Log In | Meet your neighborhood</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -14,55 +14,60 @@
 
 <body>
     <header class="navbar">
-        <div class="logo">
+        <a href="index.html" class="logo">
             Meet <strong>your</strong> neighborhood.
-        </div>
+        </a>
         <nav>
-            <a href="index.html" class="nav-link">Home</a>
             <a href="events.html" class="nav-link">Events</a>
-            <a href="login.html" class="nav-link">Log in / Sign up</a>
+            <a href="login.html" class="nav-link active">Log in / Sign up</a>
             <a href="about.html" class="nav-link">About</a>
         </nav>
     </header>
 
-    <main class="about-main">
-        <section class="about-section">
-            <h1 class="page-title">Our Mission</h1>
-            <p class="section-text">
-                Meeting your neighborhood is not just what we call ourselves - it's a promise as to what we will do for
-                you.
-                Our services are optimised for those who are new to the area and are unsure of where to look.
-            </p>
-            <p class="section-text">
-                If you have previous experience in this neighborhood, maybe this website isn't what you will want to
-                use.
-                This experience is tailored specifically for pure beginners, in an attempt to aid with their first ever
-                social gathering in the area. By keeping it simple, users should be able to easily make a decision.
-            </p>
-            <p class="section-text">
-                As always, we strive to improve our service 24/7. No version of this website is final until the day the
-                creators of this website succumb to life.
-            </p>
-            <hr class="section-divider">
-        </section>
+    <main class="login-main">
+        <div class="form-container">
+            <div class="form-toggle">
+                <button id="login-toggle" class="toggle-btn active" onclick="showForm('login')">Log In</button>
+                <button id="signup-toggle" class="toggle-btn" onclick="showForm('signup')">Sign Up</button>
+            </div>
 
-        <section class="about-section">
-            <h1 class="page-title">Support & Contact</h1>
-            <p class="section-text">
-                If you have any questions or concerns, please contact us at <a
-                    href="mailto:support@chayn.cc">support@chayn.cc</a>.
-            </p>
-            <hr class="section-divider">
-        </section>
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form">
+                <h2>Welcome Back!</h2>
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="••••••••" required>
+                </div>
+                <a href="#" class="forgot-password">Forgot password?</a>
+                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            </form>
 
-        <section class="about-section">
-            <h1 class="page-title">Privacy Policy</h1>
-            <p class="section-text">
-                We value your privacy and are committed to protecting your personal information.
-                We do not sell your data to third parties. All data is stored securely and used only to improve your
-                experience.
-            </p>
-        </section>
+            <!-- Sign Up Form (Hidden by default) -->
+            <form id="signup-form" class="auth-form hidden">
+                <h2>Join the Community</h2>
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" placeholder="Confirm password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            </form>
+        </div>
     </main>
 
     <footer class="site-footer">
@@ -70,6 +75,27 @@
             to
             view our full Privacy Policy.</p>
     </footer>
+
+    <script>
+        function showForm(formType) {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const loginToggle = document.getElementById('login-toggle');
+            const signupToggle = document.getElementById('signup-toggle');
+
+            if (formType === 'login') {
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+                loginToggle.classList.add('active');
+                signupToggle.classList.remove('active');
+            } else {
+                loginForm.classList.add('hidden');
+                signupForm.classList.remove('hidden');
+                loginToggle.classList.remove('active');
+                signupToggle.classList.add('active');
+            }
+        }
+    </script>
 
 </body>
 
