@@ -115,6 +115,7 @@ body {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
 }
 
 .btn:hover {
@@ -157,6 +158,132 @@ body {
     }
 
     .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Events Page Styles */
+.events-main {
+    padding: 100px 5% 50px;
+    /* Top padding to account for fixed navbar */
+    min-height: 100vh;
+    background-color: white;
+    color: black;
+}
+
+.events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.events-header h1 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.events-header h1 strong {
+    font-weight: 700;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-control {
+    background-color: var(--nav-bg);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.event-card {
+    border: 3px solid var(--nav-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: white;
+}
+
+.event-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.event-map-placeholder {
+    background-color: #e0e0e0;
+    height: 120px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #757575;
+    font-size: 1.5rem;
+}
+
+.event-details {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.event-details p {
+    margin-bottom: 4px;
+}
+
+.btn-join {
+    background: none;
+    border: none;
+    font-family: var(--primary-font);
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    margin-top: auto;
+    /* Push to bottom */
+    transition: transform 0.2s;
+}
+
+.btn-join:hover {
+    transform: scale(1.05);
+}
+
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.site-footer a {
+    color: black;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .events-header {
         flex-direction: column;
         align-items: flex-start;
     }
