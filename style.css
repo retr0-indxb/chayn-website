@@ -16,7 +16,6 @@ body {
     overflow-x: hidden;
 }
 
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -58,11 +57,10 @@ body {
     border-bottom: 2px solid var(--text-white);
 }
 
-
 .hero {
     height: 100vh;
     width: 100%;
-    background-image: url('../assets/hero-bg.png');
+    background-image: url('assets/hero-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -72,8 +70,6 @@ body {
     padding-left: 5%;
     position: relative;
 }
-
-
 
 .hero-content {
     margin-top: 60px;
@@ -98,7 +94,6 @@ body {
     font-size: 4rem;
     margin-bottom: 3rem;
 }
-
 
 .hero-actions {
     display: flex;
@@ -129,10 +124,8 @@ body {
 
 .btn i {
     font-size: 1.5rem;
-    -webkit-text-stroke: 1px black;
     -webkit-text-stroke: 0;
 }
-
 
 .hero-footer {
     position: absolute;
@@ -149,7 +142,6 @@ body {
     color: white;
     text-decoration: underline;
 }
-
 
 @media (max-width: 768px) {
     .logo {
