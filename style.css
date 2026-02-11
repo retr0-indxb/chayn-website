@@ -436,3 +436,7 @@ a.logo:active {
     color: #333;
     text-decoration: underline;
 }
+
+.hidden {
+    display: none !important;
+}
