@@ -31,7 +31,6 @@
                 <button id="signup-toggle" class="toggle-btn" onclick="showForm('signup')">Sign Up</button>
             </div>
 
-            <!-- Login Form -->
             <form id="login-form" class="auth-form">
                 <h2>Welcome Back!</h2>
                 <div class="form-group">
@@ -46,7 +45,7 @@
                 <button type="submit" class="btn btn-primary btn-block">Log In</button>
             </form>
 
-            <!-- Sign Up Form (Hidden by default) -->
+
             <form id="signup-form" class="auth-form hidden">
                 <h2>Join the Community</h2>
                 <div class="form-group">
@@ -95,8 +94,64 @@
                 signupToggle.classList.add('active');
             }
         }
-    </script>
 
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    window.location.href = 'index.html';
+                } else {
+                    alert(data.error || 'Login failed');
+                }
+            } catch (error) {
+                console.error('Error logging in:', error);
+                alert('An error occurred during login.');
+            }
+        });
+
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/auth/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, password })
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    window.location.href = 'index.html';
+                } else {
+                    alert(data.error || 'Signup failed');
+                }
+            } catch (error) {
+                console.error('Error signing up:', error);
+                alert('An error occurred during signup.');
+            }
+        });
+    </script>
 </body>
 
 </html>
